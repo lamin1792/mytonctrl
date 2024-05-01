@@ -72,9 +72,9 @@ rm -rf .ninja_*
 memory=$(cat /proc/meminfo | grep MemAvailable | awk '{print $2}')
 let "cpuNumber = memory / 2100000" || cpuNumber=1
 
-cmake -DCMAKE_BUILD_TYPE=Release ${srcdir}/${repo} -GNinja -DOPENSSL_FOUND=1 -DOPENSSL_INCLUDE_DIR=$opensslPath/include -DOPENSSL_CRYPTO_LIBRARY=$opensslPath/libcrypto.a
-ninja -j ${cpuNumber} fift validator-engine lite-client pow-miner validator-engine-console generate-random-id dht-server func tonlibjson rldp-http-proxy
-systemctl restart validator
+# cmake -DCMAKE_BUILD_TYPE=Release ${srcdir}/${repo} -GNinja -DOPENSSL_FOUND=1 -DOPENSSL_INCLUDE_DIR=$opensslPath/include -DOPENSSL_CRYPTO_LIBRARY=$opensslPath/libcrypto.a
+# ninja -j ${cpuNumber} fift validator-engine lite-client pow-miner validator-engine-console generate-random-id dht-server func tonlibjson rldp-http-proxy
+# systemctl restart validator
 
 # Конец
 echo -e "${COLOR}[1/1]${ENDC} TON components update completed"
